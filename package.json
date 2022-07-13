@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@polkadot/keyring": "^10.0.2",
+    "ipfs-core": "^0.15.4"
+  }
+}
