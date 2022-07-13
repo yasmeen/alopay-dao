@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Feed, Grid, Button } from 'semantic-ui-react'
+import { Feed, Grid } from 'semantic-ui-react'
+import PaymentsTable from './PaymentsTable'
 
 import { useSubstrateState } from './substrate-lib'
 
@@ -57,7 +58,7 @@ function Main(props) {
   return (
     <Grid.Column width={8}>
       <h1 style={{ float: 'left' }}>Payments</h1>
-      <Button
+      {/* <Button
         basic
         circular
         size="mini"
@@ -65,11 +66,12 @@ function Main(props) {
         floated="right"
         icon="erase"
         onClick={_ => setEventFeed([])}
-      />
+      /> */}
       <Feed
         style={{ clear: 'both', overflow: 'auto', maxHeight: feedMaxHeight }}
         events={eventFeed}
       />
+      <PaymentsTable />
     </Grid.Column>
   )
 }

@@ -12,7 +12,7 @@ function Main(props) {
 
   // The currently stored value
   const [currentValue, setCurrentValue] = useState(0)
-  const [totalValue, setTotalValue] = useState(0)
+//   const [totalValue, setTotalValue] = useState(0)
   const [formValue, setFormValue] = useState(0)
   
 
@@ -28,12 +28,6 @@ function Main(props) {
           setCurrentValue('<None>')
         } else {
           setCurrentValue(newValue.unwrap().toNumber())
-          console.log(currentValue)
-          console.log(totalValue)
-          
-          const newTV = totalValue + newValue.unwrap().toNumber()
-          console.log(newTV)
-          setTotalValue(newTV)
         }
       })
       .then(unsub => {
@@ -42,14 +36,14 @@ function Main(props) {
       .catch(console.error)
 
     return () => unsubscribe && unsubscribe()
-  }, [api.query.templateModule, currentValue, totalValue])
+  }, [api.query.templateModule])
 
   return (
     <Grid.Column width={8}>
-      <h1>Hours</h1>
+      <h1>Update Hours</h1>
       <Card centered>
         <Card.Content textAlign="center">
-          <Statistic label="Hours worked" value={totalValue} />
+          <Statistic label="Hours added" value={currentValue} />
         </Card.Content>
       </Card>
       <Form>
@@ -58,7 +52,13 @@ function Main(props) {
             label="hours"
             state="newValue"
             type="number"
-            onChange={(_, { value }) => setFormValue(value)}
+            onChange={(_, { value }) => {
+                setFormValue(value)
+            }}
+          />
+          <Input 
+          label="note"
+          type="text"
           />
         </Form.Field>
         <Form.Field style={{ textAlign: 'center' }}>

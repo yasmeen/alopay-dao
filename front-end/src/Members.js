@@ -37,7 +37,7 @@ export default function Main(props) {
       <h1>Members</h1>
       {accounts.length === 0 ? (
         <Label basic color="yellow">
-          No accounts to be shown
+          No members to be shown
         </Label>
       ) : (
         <Table celled striped size="small">
@@ -50,7 +50,7 @@ export default function Main(props) {
                 <strong>Address</strong>
               </Table.Cell>
               <Table.Cell width={3}>
-                <strong>Hours Worked</strong>
+                <strong>Role</strong>
               </Table.Cell>
               <Table.Cell width={3}>
                 <strong>Payments Received</strong>
@@ -77,9 +77,7 @@ export default function Main(props) {
                   </CopyToClipboard>
                 </Table.Cell>
                 <Table.Cell width={3}>
-                  {balances &&
-                    balances[account.address] &&
-                    balances[account.address]}
+                  Contributor
                 </Table.Cell>
                 <Table.Cell width={3}>
                   {balances &&
